@@ -117,6 +117,14 @@ This example application has 3 different endpoints
     { coordinates: [[13.3905, 52.5205], [13.3906, 52.5206]] }
   ```
 
+* `POST /trip`: Implements calls to `osrm.trip` to get a list of locations sequences for a shortest way for all provided locations.
+
+  _Example body_:
+  ```
+    { coordinates: [[13.3905, 52.5205], [13.3906, 52.5206]] }
+  ```
+
+
 The source code should be simple enough to provide an overview and to get started for
 extensions / own development.
 
