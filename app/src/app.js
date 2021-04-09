@@ -7,6 +7,7 @@ const logfmt = require("logfmt");
 const health = require("./routes/health");
 const route = require("./routes/route");
 const table = require("./routes/table");
+const trip = require("./routes/trip");
 
 const osrmBindings = require("./lib/osrm");
 
@@ -21,6 +22,7 @@ function configureRoutes(app) {
   app.use("/health", health);
   app.use("/route", route);
   app.use("/table", table);
+  app.use("/trip", trip);
 }
 
 function configureOSRM(app, options) {
