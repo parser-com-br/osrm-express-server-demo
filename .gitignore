@@ -1,0 +1,3 @@
+data/osrm/example-areas/sudeste-latest.*
+.env.sudeste
+app/node_modules/
