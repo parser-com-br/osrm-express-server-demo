@@ -4,6 +4,7 @@ const logfmt = require("logfmt");
 const router = express.Router();
 
 router.post("/", (req, res) => {
+  res.setHeader("Access-Control-Allow-Origin","*");
   if (!req.body.coordinates) {
     return res.status(422).json({ error: "Missing coordinates" });
   }
@@ -17,18 +18,6 @@ router.post("/", (req, res) => {
     roundtrip: JSON.parse(req.body.roundtrip)
   };
 
-  console.log(options);
-/*
-  var options = {
-    coordinates: [
-      [13.36761474609375, 52.51663871100423],
-      [13.374481201171875, 52.506191342034576]
-    ],
-    source: "first",
-    destination: "last",
-    roundtrip: false
-  }
-*/
   if (!req.body.sources || !req.body.destinations) {
     delete options.sources;
     delete options.destinations;
