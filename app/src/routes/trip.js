@@ -4,7 +4,7 @@ const logfmt = require("logfmt");
 const router = express.Router();
 
 router.post("/", (req, res) => {
-  res.setHeader("Access-Control-Allow-Origin","*");
+  res.setHeader("Access-Control-Allow-Origin","https://mobsync.com.br");
   if (!req.body.coordinates) {
     return res.status(422).json({ error: "Missing coordinates" });
   }

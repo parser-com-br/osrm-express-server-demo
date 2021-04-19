@@ -4,16 +4,19 @@ const logfmt = require("logfmt");
 const router = express.Router();
 
 router.post("/", (req, res) => {
+  //res.setHeader("Access-Control-Allow-Origin","https://mobsync.com.br");
+  res.setHeader("Access-Control-Allow-Origin","*");
   if (!req.body.coordinates) {
     return res.status(422).json({ error: "Missing coordinates" });
   }
 
   const osrm = req.app.get("osrm");
+  console.log(req.body.coordinates);
   const options = {
-    coordinates: req.body.coordinates,
+    coordinates: JSON.parse(req.body.coordinates),
     alternatives: req.body.alternatives || false,
     // Return route steps for each route leg
-    steps: req.body.steps || false,
+    steps: JSON.parse(req.body.steps) || false,
     // Return annotations for each route leg
     annotations: req.body.annotations || false,
     // Returned route geometry format. Can also be geojson
